@@ -1,0 +1,90 @@
+﻿@model User;
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    .bg-custom {
+        background-color: #181818;
+    }
+
+    .outline {
+        border: 2px solid #fff;
+    }
+</style>
+<section style="background-color: #181818;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-custom rounded-3 p-3 mb-4" style=" border: 2px solid #fff;">
+                    <ol class="breadcrumb mb-0 bg-custom border">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-controller="Course" asp-action="Index">Courses</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">User Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center bg-custom" style="border: 2px solid #fff;">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px; border: 3px solid #fff;">
+                        <h5 class="my-3 text-white outline">@Model.Name @Model.LastName</h5>
+                        <p class="text-white mb-1 outline">Full Stack Developer</p>
+                        <hr class="bg-white" />
+                        <div class="d-flex justify-content-center mb-2">
+                            <button type="button" class="btn btn-outline-primary mr-2">Follow</button>
+                            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body bg-custom" style="border: 1px solid #fff;">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-white">Full Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-white mb-0 text-white">@Model.Name @Model.LastName</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-white">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-white mb-0">@Model.Email</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-white">Age</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-white mb-0">@Model.Age</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-white">City / Adress</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-white mb-0">@Model.City / @Model.Address</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

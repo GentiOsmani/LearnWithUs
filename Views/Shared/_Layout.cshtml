@@ -1,0 +1,213 @@
+﻿<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>Website Menu #5</title>
+    <style>
+        .custom-bg-black {
+            background-color: #A3A3A3; /* You can adjust the color code to your desired deep gray */
+            /* Add any other styles you need for this element */
+        }
+
+        .custom-bg-categories {
+            color: #FFF;
+        }
+
+        .site-logo a.custom-bg-categories {
+            color: #FFF; /* Your desired text color */
+        }
+
+        a.custom-bg-categories {
+            color: #FFF; /* Your desired text color */
+        }
+
+        .fade-on-hover {
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+
+            .fade-on-hover::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #FFF; /* Change the color as needed */
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 0.3s;
+            }
+
+            .fade-on-hover:hover::before {
+                opacity: 1;
+            }
+
+        /* Fade-in color */
+        /* .fade.show {
+                                                opacity: 0;
+                                            color: #FF595A; */
+        /* Set the background color to transparent for the fade-in effect */
+        /* } */
+
+        /* Fade-out color */
+        /* .fade:not(.show) {
+                                                opacity: 0;
+                                                color: white; */ /* Set the background color to white for the fade-out effect
+                                            } */
+        .site-navbar {
+            position: sticky;
+            top: 0;
+            background-color: black;
+            border-bottom-color: white;
+            z-index: 1000; /* Ensure the navbar is on top of the content */
+        }
+
+        .container-main {
+            margin-top: 60px; /* Adjust this value to account for the navbar height */
+        }
+
+
+        .h-9 {
+            height: 30px;
+        }
+
+        .custom-bg-white {
+            background-color: white;
+        }
+
+        .ms-n5 {
+            margin-left: -40px;
+        }
+
+        .custom-bg-white {
+            background-color: white;
+        }
+
+        .ms-n5 {
+            margin-left: -40px;
+        }
+        /* Custom CSS for sidebar spacing */
+        .sidebar-item {
+            margin-bottom: 10px; /* Adjust the vertical spacing as needed */
+        }
+        /* Custom CSS to lower the search bar */
+        .search-bar {
+            margin-top: 20px; /* Adjust the margin to lower the search bar */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-mobile-menu d-block site-navbar-target border-end-0 border-whitew opacity-25">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="site-navbar site-navbar-target py-4 bg-black border-white border-bottom" role="banner">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="col-3 d-flex align-items-baseline">
+                    <div class="site-logo pr-4">
+                        <a class="font-weight-bold custom-bg-categories" asp-controller="Home" asp-action="Index">Brand</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link text-w btn font-weight-bold custom-bg-categories fade-on-hover" asp-controller="Course" asp-action="Index">COURSES</a>
+                    </div>
+                </div>
+                <div class="col-9 text-right">
+                    <span class="d-inline-block d-lg-block bg-black z-3">
+                        <a href="#" class="text-black site-menu-toggle js-menu-toggle py-5 z-3"><span class="icon-menu h3 text-white z"></span></a>
+                    </span>
+                    <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto mb-3">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="search-bar">
+                                    <!-- Added the custom class for spacing -->
+                                    <form method="post" asp-action="Search" asp-controller="Course">
+                                        <div class="p-1 bg-light rounded rounded-pill mb-4">
+                                            <div class="input-group">
+                                                <input name="SearchInput" type="search" placeholder="Search for a Course" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                                <div class="input-group-append">
+                                                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="sidebar-item">
+                                    <!-- Added the custom class for spacing -->
+                                    <a class="nav-link text-dark btn btn-outline-none" asp-controller="User" asp-action="Profile">Profile</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <!-- Added the custom class for spacing -->
+                                    <a class="nav-link text-dark btn btn-outline-secondary" asp-controller="Account" asp-action="SignOut">Sign Out</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item sidebar-item">
+                                    <!-- Added the custom class for spacing -->
+                                    <a class="nav-link text-dark btn btn-outline-secondary" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                </li>
+                                <li class="nav-item sidebar-item">
+                                    <!-- Added the custom class for spacing -->
+                                    <a class="nav-link text-dark btn btn-outline-secondary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+

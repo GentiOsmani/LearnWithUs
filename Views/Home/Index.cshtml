@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using MenagmentSystem.Entities;
+<html !DOCTYPE>
+
+<head>
+
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+
+        body {
+            background-image: url('images/indexpic.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            background-image: url('images/indexpic.jpg');
+            background-size: cover;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/indexpic.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fade-on-hover {
+            transition: opacity 0.3s ease;
+        }
+
+            .fade-on-hover:hover {
+                opacity: 0.5;
+            }
+    </style>
+</head>
+
+
+
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+    var user = new User();
+    var data = User.Identity.Name;
+    if (data is not null)
+    {
+        user = await userManager.FindByEmailAsync(User.Identity.Name);
+    }
+}
+@inject UserManager<User> userManager;
+<body>
+    <div class="hero hero-image zindex-bg-opacity-10" style="background-image: url('images/indexpic.png'); height: 100vh; width: 100%;"></div>
+</body>
+
+</html>

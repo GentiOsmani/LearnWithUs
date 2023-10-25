@@ -1,0 +1,90 @@
+﻿@using MenagmentSystem.ViewModel;
+@{
+    Layout = "_Layout";
+}
+@model RegisterViewModel;
+
+<style>
+    /* Custom CSS class to make the card background black */
+    .bg-black-custom {
+        background-color: #181818;
+        color: white; /* Optionally, you can set the text color to white for better contrast */
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        overflow-y: hidden;
+    }
+</style>
+
+<div class="center-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-4">
+                    <div class="card-body bg-black-custom">
+                        <!-- Add the custom CSS class "bg-black-custom" -->
+                        <h2 class="card-title text-center">Register</h2>
+                        <form method="POST" asp-action="Register" asp-controller="Account">
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" style="width: 100%;" data-bs-toggle="tooltip" data-bs-placement="left" title="Your First Name">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="LastName">Surename</label>
+                                    <input asp-for="LastName" class="form-control" style="width: 100%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Your Last Name">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group mt-2">
+                                    <label asp-for="Email">Email</label>
+                                    <input asp-for="Email" class="form-control mx-auto" type="email" style="width: 100%;" asp-for="Email" data-bs-toggle="tooltip" data-bs-placement="right" title="Your Email Address">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="Age">Age</label>
+                                    <input asp-for="Age" class="form-control mx-auto" style="width: 100%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Your Age">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around mb-4">
+                                <div class="form-group mt-2">
+                                    <label asp-for="Password">Password</label>
+                                    <input class="form-control mx-auto" style="width: 100%;" type="Password" asp-for="Password" data-bs-toggle="tooltip" data-bs-placement="right" title="Password should have at least one capital letter, one number and for letters ">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="ConfirmPassword">Confirm Password:</label>
+                                    <input asp-for="ConfirmPassword" class="form-control" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <hr class="bg-white" />
+
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group mt-2">
+                                    <label asp-for="City">City</label>
+                                    <input class="form-control mx-auto" style="width: 100%;" asp-for="City">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="Address">Address</label>
+                                    <input class="form-control mx-auto" style="width: 100%;" asp-for="Address">
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary" style="margin-top: 20px;" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
